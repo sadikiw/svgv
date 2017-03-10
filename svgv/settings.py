@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'svgv_app.apps.SvgvAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -69,7 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'svgv.wsgi.application'
 
-
+AUTH_USER_MODEL = 'svgv_app.CustomUser'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -99,6 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+MEDIA_ROOT = 'svgv_app/static/svgv_app/images'
+STATIC_ROOT = 'static'
+STATIC_URL = '/static/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
