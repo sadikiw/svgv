@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="img/logo.png">
+
+    {% if UserProfile.username %}
+    <title>{% UserProfile.username %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="4a.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+  <header class="cd-header">
+    <div id="cd-logo"><a href="#0"><img src="img/logo.png" width="40" height="40" alt="Logo"></a></div>
+    <div class="navbar-wrapper">
+      <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">SVGV</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class="dropdown-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+
+    
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing">
+
+      <!-- Columns with student image below the carousel -->
+      <div class = "row">
+        <div class="col-lg-4">
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-12">
+            {% if companyprofile.logo %}
+            <img class="center-block" style="border-radius:50%" src="{% companyprofile.logo %}" alt="Generic placeholder image">
+          
+          {% if companyprofile.username %}
+          <h2><center>{% companyprofile.username %}</h2>
+          <p></p>
+        </div><!-- /.col-lg-12 -->
+        <!-- /.col-lg-4 --> 
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+        {% if companyprofile.summary %}
+          <h2 class="featurette-heading">About<span class="text-muted"></span></h2>
+          <p class="lead">{% companyprofile.summary %}</p>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Market Information</h2>
+          {% if companyprofile.valuation %}
+          <h3 class="featurette-heading">Valuation: {% if companyprofile.valuation %}</h3>
+          {% if companyprofile.industry %}
+          <h3 class="featurette-heading">Industry: {% companyprofile.industry %}</h3>
+          {% if companyprofile.location %}
+          <h3 class="featurette-heading">Location: {% companyprofile.location %}</h3>
+          {% if companyprofile.employees %}
+          <h3 class="featurette-heading">Employees: {% companyprofile.employees %}</h3>
+          <h3 class="featurette-heading">Products</h3>
+          {% if companyprofile.product_name %}
+          <p class="lead">Most Interesting Product(s):{% companyprofile.product_name %}</p>
+          {% if companyprofile.product_desc %}
+          <p class="lead">{% companyprofile.product_desc %}</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Career Listing<span class="text-muted"></span></h2>
+          {% if companyprofile.job_one_title %}
+          <h3 class="featurette-heading">{% companyprofile.job_one_title %}</h3>
+          {% if companyprofile.job_one %}
+          <p class="lead">{% companyprofile.job_one %}</p>
+          {% if companyprofile.job_two_title %}
+          <h3 class="featurette-heading">{% companyprofile.job_two_title %}</h3>
+          {% if companyprofile.job_two %}
+          <p class="lead">{% companyprofile.job_two %}</p>
+          {% if companyprofile.job_three_title %}
+          <h3 class="featurette-heading">{% companyprofile.job_three_title %}</h3>
+          {% if companyprofile.job_three %}
+          <p class="lead">{% companyprofile.job_three %}</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+
+      <!-- FOOTER -->
+      <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
